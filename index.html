@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/8b3a760ff3.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        color: white;
+        margin: 0;
+      }
+      #main {
+        margin: auto;
+        background-color: rgb(34, 80, 144);
+        height: 600px;
+      }
+      #city {
+        padding: 10px;
+        border-radius: 20px;
+        overflow: hidden;
+        background-color: steelblue;
+        color: white;
+        border: none;
+        outline: none;
+      }
+      #searchDiv > i {
+        position: relative;
+        right: 30px;
+        cursor: pointer;
+        color: white;
+      }
+      ::placeholder {
+        color: white;
+      }
+      .metadata {
+        display: flex;
+        padding: 10px;
+        background-color: rgb(50, 91, 143);
+      }
+      .main-data {
+        display: flex;
+        width: 80%;
+        margin: auto;
+      }
+      #efgh {
+        display: flex;
+        width: 80%;
+        /* border: 1px solid red; */
+        margin: auto;
+      }
+      #searchDiv {
+        width: 80%;
+        margin: auto;
+      }
+      #container {
+        width: 90%;
+        margin-right: 20px;
+        background-repeat: no-repeat;
+        border-radius: 10px;
+      }
+      .mapouter {
+        position: relative;
+        text-align: right;
+        /* height: 500px; */
+        width: 35%;
+      }
+      .gmap_canvas {
+        overflow: hidden;
+        background: none !important;
+        height: 304px;
+        /* width: 100%; */
+        border-radius: 10px;
+      }
+      .one > p:first-child {
+        margin-bottom: 2px;
+        font-size: 16px;
+        font-family: monospace;
+      }
+      .one > p:nth-child(2) {
+        margin-top: 0;
+      }
+      .two {
+        display: flex;
+      }
+
+      .two > img,
+      .two > div,
+      .two > h2 {
+        margin-top: 0;
+      }
+      .two > img {
+        width: 12%;
+        margin-right: 15px;
+        margin-top: -20px;
+      }
+
+      .two > h2 {
+        font-size: 50px;
+        margin-right: 30px;
+        margin-top: 4px;
+      }
+      .two p:first-child {
+        margin-bottom: 0;
+        font-weight: bold;
+      }
+      .two p:nth-child(2) {
+        margin-top: 5px;
+      }
+      .two span {
+        font-size: 27px;
+        position: relative;
+        top: -17px;
+      }
+      .four {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 30px;
+        /* width: 90%; */
+      }
+      #current-location {
+        padding: 10px;
+        /* height: 40px; */
+        width: 80%;
+        margin: auto;
+        /* background-color: green; */
+      }
+      #current-location > p {
+        font-size: 20px;
+      }
+      .one,
+      .two,
+      .three {
+        margin-left: 15px;
+      }
+      #forecast {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-gap: 10px;
+        margin-top: 20px;
+        justify-content: center;
+      }
+      .forecastDiv {
+        display: flex;
+      }
+      #box {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+          rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        background-color: #285492;
+        width: 65%;
+        border-radius: 10px;
+        margin: auto;
+      }
+      #daysForecast {
+        font-weight: bold;
+        font-size: 25px;
+        margin-left: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="metadata">
+      <div id="searchDiv">
+        <input
+          type="text"
+          name="search"
+          id="city"
+          placeholder="Search for location"
+        />
+        <i class="fas fa-search" onclick="getWeatherData()" id="btn"></i>
+      </div>
+    </div>
+    <div id="main">
+      <div id="current-location">
+        <p></p>
+        <i class=""></i>
+      </div>
+      <div id="efgh">
+        <div class="main-data"></div>
+        <div class="mapouter">
+          <div class="gmap_canvas">
+            <iframe
+              width="600"
+              height="500"
+              id="gmap_canvas"
+              frameborder="0"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
+            ></iframe
+            ><a href="https://putlocker-is.org"></a><br /><a
+              href="https://www.embedgooglemap.net"
+            ></a>
+          </div>
+        </div>
+      </div>
+      <p id="daysForecast"></p>
+      <div id="forecast"></div>
+    </div>
+  </body>
+</html>
+<script>
+  var input = document.getElementById("city");
+  input.addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      document.getElementById("btn").click();
+    }
+  });
+</script>
