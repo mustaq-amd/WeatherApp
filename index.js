@@ -9,7 +9,7 @@ var imageArr=["https://assets.msn.com/bundles/v1/weather/latest/SunnyDay.svg",
     "https://assets.msn.com/bundles/v1/weather/latest/SunnyDay.svg"]
 async function dailydata(lon,lat){   
     try {
-        let res=await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,hourly,minutely,alerts&units=metric&appid=${key}`)
+        let res=await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,hourly,minutely,alerts&units=metric&appid=${key}`);
     let data= await res.json();
     console.log("data 7",data);
     showDailyData(data);
@@ -24,7 +24,7 @@ async function dailydata(lon,lat){
 async function getWeatherData() {
     try {
         let city = document.getElementById("city").value;
-        let res = await fetch(`https:api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`)
+        let res = await fetch(`https:api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`);
         let data = await res.json();
         console.log("data",data);
         showWeather(data);
